@@ -2,19 +2,20 @@ import mysql.connector as mysql
 import sqlalchemy as db
 import datetime
 
+from dotenv import load_dotenv
+load_dotenv()
+
+import os
+MYSQL_USER = os.getenv('MYSQL_USER')
+MYSQL_PASS = os.getenv('MYSQL_PASSWORD')
 # *****************
 # 初期設定
 # *****************
-dt_now = datetime.datetime.now()
-user_name = "light"
-password = "light"
-host = "db"  # docker-composeで定義したMySQLのサービス名
-database_name = "db"
 
 conn = mysql.connect(
     host="db",
-    user="light",
-    passwd="light",
+    user=MYSQL_USER,
+    passwd=MYSQL_PASS,
     port=3306,
     database="db",
     buffered = True

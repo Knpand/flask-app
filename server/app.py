@@ -12,5 +12,5 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     sqldatails=sqlhandler.select_all()
-    print(sqldatails)
-    return "index"
+    print(sqldata)
+    return sqldata
