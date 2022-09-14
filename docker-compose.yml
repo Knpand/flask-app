@@ -18,10 +18,10 @@ services:
     image: mysql:5.7
     container_name: db
     environment:
-        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        MYSQL_ROOT_PASSWORD: root
         MYSQL_DATABASE: db
-        MYSQL_USER: ${MYSQL_USER}
-        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        MYSQL_USER: samp
+        MYSQL_PASSWORD: samp
         TZ: 'Asia/Tokyo'
     volumes:
         - ./db/data:/var/lib/mysql
@@ -37,8 +37,8 @@ services:
       image: phpmyadmin/phpmyadmin
       environment:
           - PMA_ARBITRARY=1
-          - PMA_HOSTS=database
-          - PMA_USER=${MYSQL_USER}
-          - PMA_PASSWORD=${MYSQL_PASSWORD}
+          - PMA_HOSTS=db
+          - PMA_USER=samp
+          - PMA_PASSWORD=samp
       ports:
           - 8000:80
